@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <link rel="stylesheet" href="index.css">
+    <title>Calculadora</title>
+</head>
+<body>
+    <div class="fundo">
+        <h1>Guilherme Mesquita</h1>
+        <div class="Calculadora">
+            <h1>Calculadora</h1>
+            <p id="resultado"></p>
+    <table>
+       <tr> <!--Botões dos Operadores-->
+        <td><button class="botão"onclick="clean()">C</button></td>
+        <td><button class="botão"onclick="back()"><</button></td>
+        <td><button class="botão"onclick="insert('/')">/</button></td>
+        <td><button class="botão"onclick="insert('*')">x</button></td>
+    
+    </tr> 
+    <tr> <!--Botões dos Números-->
+        <td><button class="botão"onclick="insert('7')">7</button></td>
+        <td><button class="botão"onclick="insert('8')">8</button></td>
+        <td><button class="botão"onclick="insert('9')">9</button></td>
+        <td><button class="botão" onclick="insert('-')">-</button></td>
+    </tr> 
+    <tr> <!--Botões dos Números-->
+        <td><button class="botão"onclick="insert('4')">4</button></td>
+        <td><button class="botão"onclick="insert('5')">5</button></td>
+        <td><button class="botão"onclick="insert('6')">6</button></td>
+        <td><button class="botão"onclick="insert('+')">+</button></td>
+    </tr> 
+    <tr> <!--Botões dos Números-->
+        <td><button class="botão"onclick="insert('1')">1</button></td>
+        <td><button class="botão"onclick="insert('2')">2</button></td>
+        <td><button class="botão"onclick="insert('3')">3</button></td>
+        <td rowspan="2"><button class="botão" style="height: 106px; " onclick="calcular()">=</button></td>
+        </tr> 
+    <tr> <!--Botões dos Números-->
+        <td colspan="2"><button class="botão" style="width: 106px;"onclick="insert('0')">0</button></td>
+        <td><button class="botão" onclick="insert('.')">.</button></td>
+       
+    </tr> 
+    </table>
+    
+        </div>
+     </div>
+     <script>
+    //Colocando os números para aparecerem na tela//
+      function insert(num)
+      {
+     var numero = document.getElementById('resultado').innerHTML;
+     document.getElementById('resultado').innerHTML = numero + num
+      }
+    //botão para limpar tudo//
+      function clean()
+      {
+       document.getElementById("resultado").innerHTML = ""; 
+      }
+    //botão para apagar um por um//
+    function back()
+    {
+        var resultado = document.getElementById('resultado').innerHTML;
+        document.getElementById("resultado").innerHTML = resultado.substring(0,resultado.length -1)
+    }
+    //botão de calcular//
+    function calcular()
+    {
+      var resultado = document.getElementById('resultado').innerHTML;
+
+      if(resultado)
+      {
+        document.getElementById('resultado').innerHTML = eval(resultado)
+      }  
+      else
+      {
+        document.getElementById('resultado').innerHTML = "Digite algo, Cuzão"
+      }
+    }
+     
+     </script>
+</body>
+</html>
